@@ -14,12 +14,18 @@ html{scroll-behavior:smooth}
 body{background:var(--ink);color:#e5e7eb;font-family:Inter,system-ui,sans-serif;margin:0}
 .card{background:var(--panel);border:1px solid var(--line);border-radius:16px}
 .gold{color:var(--gold)}
-/* Bandas laterales decorativas */
-.side-band{position:fixed;top:0;bottom:0;width:8px;z-index:100;pointer-events:none}
-.side-band.left{left:0;background:linear-gradient(180deg,#c9a227 0%,#0b0c0f 40%,#0b0c0f 60%,#c9a227 100%)}
-.side-band.right{right:0;background:linear-gradient(180deg,#c9a227 0%,#0b0c0f 40%,#0b0c0f 60%,#c9a227 100%)}
+/* Bandas laterales onduladas / orgánicas */
+.side-band{position:fixed;top:0;bottom:0;width:14px;z-index:100;pointer-events:none;opacity:.85}
+.side-band.left{left:0;background:linear-gradient(180deg,#c9a227 0%,transparent 18%,transparent 35%,#c9a22733 50%,transparent 65%,transparent 82%,#c9a227 100%);
+  mask-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 14 200' preserveAspectRatio='none'%3E%3Cpath d='M0,0 Q7,20 0,40 Q7,60 0,80 Q7,100 0,120 Q7,140 0,160 Q7,180 0,200 L14,200 L14,0 Z' fill='black'/%3E%3C/svg%3E");
+  -webkit-mask-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 14 200' preserveAspectRatio='none'%3E%3Cpath d='M0,0 Q7,20 0,40 Q7,60 0,80 Q7,100 0,120 Q7,140 0,160 Q7,180 0,200 L14,200 L14,0 Z' fill='black'/%3E%3C/svg%3E");
+  mask-size:100% 100%;-webkit-mask-size:100% 100%}
+.side-band.right{right:0;background:linear-gradient(180deg,#c9a227 0%,transparent 18%,transparent 35%,#c9a22733 50%,transparent 65%,transparent 82%,#c9a227 100%);
+  mask-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 14 200' preserveAspectRatio='none'%3E%3Cpath d='M14,0 Q7,20 14,40 Q7,60 14,80 Q7,100 14,120 Q7,140 14,160 Q7,180 14,200 L0,200 L0,0 Z' fill='black'/%3E%3C/svg%3E");
+  -webkit-mask-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 14 200' preserveAspectRatio='none'%3E%3Cpath d='M14,0 Q7,20 14,40 Q7,60 14,80 Q7,100 14,120 Q7,140 14,160 Q7,180 14,200 L0,200 L0,0 Z' fill='black'/%3E%3C/svg%3E");
+  mask-size:100% 100%;-webkit-mask-size:100% 100%}
 #chatBox::-webkit-scrollbar{width:4px}#chatBox::-webkit-scrollbar-thumb{background:#3f3f46;border-radius:2px}
-@media(max-width:768px){.side-band{display:none}}
+@media(max-width:900px){.side-band{display:none}}
 </style>
 </head>
 <body>
@@ -32,14 +38,14 @@ body{background:var(--ink);color:#e5e7eb;font-family:Inter,system-ui,sans-serif;
       <div class="w-7 h-7 rounded bg-[var(--gold)] flex items-center justify-center"><i class="fas fa-university text-[var(--ink)] text-xs"></i></div>
       <span class="font-semibold text-sm tracking-wide">Observatorio Regional de Nariño</span>
     </div>
-    <nav class="hidden md:flex gap-5 text-xs text-[var(--soft)]">
+    <nav class="hidden md:flex gap-4 text-xs text-[var(--soft)]">
       <a href="#inicio" class="hover:text-[var(--gold)]">Inicio</a>
       <a href="#autores" class="hover:text-[var(--gold)]">Autores</a>
       <a href="#mapas" class="hover:text-[var(--gold)]">Mapas</a>
       <a href="#estadistica" class="hover:text-[var(--gold)]">Estadística</a>
       <a href="#econometria" class="hover:text-[var(--gold)]">Econometría</a>
-      <a href="#ml" class="hover:text-[var(--gold)]">Modelos</a>
       <a href="#var" class="hover:text-[var(--gold)]">VAR / IRF</a>
+      <a href="#ml" class="hover:text-[var(--gold)]">Modelos</a>
       <a href="#asistente" class="hover:text-[var(--gold)]">Asistente</a>
     </nav>
   </div>
@@ -49,10 +55,10 @@ body{background:var(--ink);color:#e5e7eb;font-family:Inter,system-ui,sans-serif;
   <div class="max-w-6xl mx-auto px-5 text-center">
     <p class="text-[var(--gold)] text-xs tracking-[0.3em] uppercase mb-4">Departamento de Nariño · Colombia</p>
     <h1 class="text-4xl md:text-5xl font-bold text-white mb-5 leading-tight">Observatorio Regional<br>de Nariño</h1>
-    <p class="text-[var(--soft)] max-w-2xl mx-auto leading-relaxed mb-8">Análisis económico territorial con mapas coropléticos reales, estadística descriptiva, econometría aplicada y modelos predictivos. Datos oficiales DANE y Consejo Privado de Competitividad.</p>
+    <p class="text-[var(--soft)] max-w-2xl mx-auto leading-relaxed mb-8">Análisis económico territorial con mapas coropléticos reales, estadística descriptiva, econometría, modelo VAR con funciones de impulso-respuesta y proyecciones. Datos oficiales DANE y Consejo Privado de Competitividad.</p>
     <div class="flex flex-wrap justify-center gap-3">
       <a href="#mapas" class="px-5 py-2.5 bg-[var(--gold)] text-[var(--ink)] font-semibold rounded-lg text-sm hover:bg-amber-400 transition">Explorar Mapas</a>
-      <a href="#estadistica" class="px-5 py-2.5 border border-[var(--line)] rounded-lg text-sm hover:border-[var(--gold)] transition">Estadística</a>
+      <a href="#var" class="px-5 py-2.5 border border-[var(--line)] rounded-lg text-sm hover:border-[var(--gold)] transition">VAR / IRF</a>
     </div>
   </div>
 </section>
@@ -72,7 +78,7 @@ body{background:var(--ink);color:#e5e7eb;font-family:Inter,system-ui,sans-serif;
         <div class="w-16 h-16 rounded-full bg-gradient-to-br from-slate-500 to-slate-800 mx-auto mb-4 flex items-center justify-center text-white text-xl font-bold">GB</div>
         <h3 class="font-semibold text-white">Geovanny Betancourt</h3>
         <p class="text-slate-400 text-xs mt-1">Econometría · Modelos Predictivos</p>
-        <p class="text-[var(--soft)] text-sm mt-3 leading-relaxed">Especificación econométrica, calibración de modelos y proyecciones de largo plazo.</p>
+        <p class="text-[var(--soft)] text-sm mt-3 leading-relaxed">Especificación econométrica, VAR, calibración de modelos y proyecciones.</p>
       </div>
     </div>
   </div>
@@ -89,16 +95,14 @@ body{background:var(--ink);color:#e5e7eb;font-family:Inter,system-ui,sans-serif;
   </div>
 </section>
 
-<!-- MAPAS -->
 <section id="mapas" class="py-14 border-b border-[var(--line)]">
   <div class="max-w-6xl mx-auto px-5">
     <h2 class="text-2xl font-bold text-white mb-1">Cartografía Territorial</h2>
-    <p class="text-[var(--soft)] text-sm mb-8">Mapa coroplético real de Colombia con divisiones político-administrativas · Visualización 3D municipal</p>
-
+    <p class="text-[var(--soft)] text-sm mb-8">Mapa coroplético real de Colombia · Visualización 3D municipal</p>
     <div class="card p-4 mb-6">
       <div class="flex flex-wrap items-center justify-between gap-3 mb-3">
-        <span class="text-sm gold font-medium"><i class="fas fa-map mr-2"></i>Colombia – Departamentos (divisiones reales)</span>
-        <select id="mapVar" class="bg-[var(--ink)] border border-[var(--line)] text-xs rounded-lg px-3 py-1.5 text-gray-300 focus:outline-none focus:ring-1 focus:ring-[var(--gold)]">
+        <span class="text-sm gold font-medium"><i class="fas fa-map mr-2"></i>Colombia – Divisiones político-administrativas reales</span>
+        <select id="mapVar" class="bg-[var(--ink)] border border-[var(--line)] text-xs rounded-lg px-3 py-1.5 text-gray-300">
           <option value="pobreza_multi">Pobreza Multidimensional (%)</option>
           <option value="pobreza_mon">Pobreza Monetaria (%)</option>
           <option value="desempleo">Tasa de Desempleo (%)</option>
@@ -106,12 +110,10 @@ body{background:var(--ink);color:#e5e7eb;font-family:Inter,system-ui,sans-serif;
         </select>
       </div>
       <div id="choropleth" style="height:520px;border-radius:12px;overflow:hidden;"></div>
-      <p class="text-[11px] text-[var(--soft)] mt-2">Fuente geometría: DANE MGN 2018 (simplificado). Datos: DANE / CPC. Haz clic en un departamento para ver el valor.</p>
     </div>
-
     <div class="grid lg:grid-cols-2 gap-6">
       <div class="card p-4">
-        <p class="text-sm gold font-medium mb-3"><i class="fas fa-cube mr-2"></i>Vista 3D – Competitividad municipal de Nariño</p>
+        <p class="text-sm gold font-medium mb-3"><i class="fas fa-cube mr-2"></i>Vista 3D – Competitividad municipal</p>
         <div id="plot3d" style="height:400px;"></div>
       </div>
       <div class="card p-4">
@@ -131,7 +133,6 @@ body{background:var(--ink);color:#e5e7eb;font-family:Inter,system-ui,sans-serif;
   </div>
 </section>
 
-<!-- ESTADÍSTICA -->
 <section id="estadistica" class="py-14 border-b border-[var(--line)]">
   <div class="max-w-6xl mx-auto px-5">
     <h2 class="text-2xl font-bold text-white mb-1">Estadística Descriptiva</h2>
@@ -153,16 +154,14 @@ body{background:var(--ink);color:#e5e7eb;font-family:Inter,system-ui,sans-serif;
   </div>
 </section>
 
-<!-- ECONOMETRÍA -->
 <section id="econometria" class="py-14 border-b border-[var(--line)]">
   <div class="max-w-6xl mx-auto px-5">
     <h2 class="text-2xl font-bold text-white mb-1">Econometría Aplicada</h2>
-    <p class="text-[var(--soft)] text-sm mb-8">Correlaciones y modelo de mínimos cuadrados ordinarios</p>
+    <p class="text-[var(--soft)] text-sm mb-8">Correlaciones y modelo OLS</p>
     <div class="grid lg:grid-cols-2 gap-6">
       <div class="card p-5">
         <p class="text-sm gold font-medium mb-4">Matriz de correlaciones de Pearson</p>
         <div class="overflow-x-auto"><table class="w-full text-xs" id="tblCorr"></table></div>
-        <p class="text-[11px] text-[var(--soft)] mt-4">La educación presenta la correlación positiva más fuerte con el índice de competitividad. La pobreza multidimensional muestra relación inversa.</p>
       </div>
       <div class="card p-5">
         <p class="text-sm gold font-medium mb-3">Modelo OLS</p>
@@ -173,14 +172,51 @@ body{background:var(--ink);color:#e5e7eb;font-family:Inter,system-ui,sans-serif;
   </div>
 </section>
 
-<!-- ML -->
+<!-- VAR / IRF -->
+<section id="var" class="py-14 border-b border-[var(--line)]">
+  <div class="max-w-6xl mx-auto px-5">
+    <h2 class="text-2xl font-bold text-white mb-1">Modelo VAR e Impulso-Respuesta (IRF)</h2>
+    <p class="text-[var(--soft)] text-sm mb-8">Dinámica entre variables · Respuestas a un shock de 1 desviación estándar (Cholesky)</p>
+    <div class="grid lg:grid-cols-5 gap-6">
+      <div class="lg:col-span-2 card p-5">
+        <p class="text-sm gold font-medium mb-4">Configuración del shock</p>
+        <div class="space-y-4">
+          <div>
+            <label class="text-xs text-[var(--soft)]">Variable que recibe el shock</label>
+            <select id="varShock" class="w-full mt-1 bg-[var(--ink)] border border-[var(--line)] text-sm rounded-lg px-3 py-2 text-gray-300">
+              <option value="ed">Educación</option>
+              <option value="pm">Pobreza Multidimensional</option>
+              <option value="de">Desempleo</option>
+              <option value="ic">Competitividad</option>
+            </select>
+          </div>
+          <div>
+            <label class="text-xs text-[var(--soft)]">Horizonte (periodos)</label>
+            <input type="range" id="varH" min="4" max="12" value="8" class="w-full accent-[var(--gold)] mt-1"/>
+            <div class="flex justify-between text-[10px] text-[var(--soft)]"><span>4</span><span id="varHVal">8</span><span>12</span></div>
+          </div>
+          <button id="btnVar" class="w-full py-2.5 bg-[var(--gold)] text-[var(--ink)] font-semibold rounded-lg text-sm hover:bg-amber-400 transition">Calcular IRF</button>
+        </div>
+        <p class="text-[11px] text-[var(--soft)] mt-4 leading-relaxed">
+          VAR(1) estimado sobre las variables normalizadas de la muestra municipal. 
+          Las IRF muestran la respuesta a un shock ortogonalizado.
+        </p>
+      </div>
+      <div class="lg:col-span-3 card p-5">
+        <p class="text-sm gold font-medium mb-3">Funciones de Impulso-Respuesta</p>
+        <canvas id="irfChart" height="230"></canvas>
+      </div>
+    </div>
+  </div>
+</section>
+
 <section id="ml" class="py-14 border-b border-[var(--line)]">
   <div class="max-w-6xl mx-auto px-5">
     <h2 class="text-2xl font-bold text-white mb-1">Modelos Predictivos</h2>
-    <p class="text-[var(--soft)] text-sm mb-8">Simulación de escenarios de política a 2030</p>
+    <p class="text-[var(--soft)] text-sm mb-8">Simulación de escenarios a 2030</p>
     <div class="grid lg:grid-cols-5 gap-6">
       <div class="lg:col-span-2 card p-5">
-        <p class="text-sm gold font-medium mb-5">Parámetros del escenario</p>
+        <p class="text-sm gold font-medium mb-5">Parámetros</p>
         <div class="space-y-5">
           <div><div class="flex justify-between text-xs mb-1.5"><span class="text-[var(--soft)]">Educación (0–10)</span><span id="vEdu" class="gold">5.8</span></div><input type="range" id="sEdu" min="3" max="9" step="0.1" value="5.8" class="w-full accent-[var(--gold)]"/></div>
           <div><div class="flex justify-between text-xs mb-1.5"><span class="text-[var(--soft)]">Reducción pobreza (pp)</span><span id="vPov" class="gold">2.0</span></div><input type="range" id="sPov" min="0" max="10" step="0.5" value="2" class="w-full accent-[var(--gold)]"/></div>
@@ -203,15 +239,15 @@ body{background:var(--ink);color:#e5e7eb;font-family:Inter,system-ui,sans-serif;
 <section id="asistente" class="py-14 border-b border-[var(--line)]">
   <div class="max-w-2xl mx-auto px-5">
     <h2 class="text-2xl font-bold text-white text-center mb-1">Asistente del Observatorio</h2>
-    <p class="text-[var(--soft)] text-sm text-center mb-6">Consultas sobre indicadores, mapas y resultados</p>
+    <p class="text-[var(--soft)] text-sm text-center mb-6">Responde preguntas básicas sobre los indicadores, mapas, VAR e IRF</p>
     <div class="card overflow-hidden">
       <div class="px-4 py-2.5 border-b border-[var(--line)] flex items-center gap-2 text-sm">
         <div class="w-5 h-5 rounded-full bg-[var(--gold)] flex items-center justify-center"><i class="fas fa-robot text-[var(--ink)] text-[9px]"></i></div>
         Asistente académico
       </div>
-      <div id="chatBox" class="h-64 overflow-y-auto p-4 space-y-3 bg-[var(--ink)]/40"></div>
+      <div id="chatBox" class="h-72 overflow-y-auto p-4 space-y-3 bg-[var(--ink)]/40"></div>
       <div class="p-3 border-t border-[var(--line)] flex gap-2">
-        <input id="chatIn" type="text" placeholder="Escribe tu pregunta..." class="flex-1 bg-[var(--ink)] border border-[var(--line)] rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-1 focus:ring-[var(--gold)] placeholder-gray-600"/>
+        <input id="chatIn" type="text" placeholder="Ej: ¿qué es el VAR? / pobreza de Nariño / autores..." class="flex-1 bg-[var(--ink)] border border-[var(--line)] rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-1 focus:ring-[var(--gold)] placeholder-gray-600"/>
         <button id="chatBtn" class="px-3 py-2 bg-[var(--gold)] text-[var(--ink)] rounded-lg"><i class="fas fa-paper-plane text-sm"></i></button>
       </div>
     </div>
@@ -221,7 +257,7 @@ body{background:var(--ink);color:#e5e7eb;font-family:Inter,system-ui,sans-serif;
 <footer class="py-10 text-center">
   <p class="text-sm text-white font-medium">Observatorio Regional de Nariño</p>
   <p class="text-xs text-[var(--soft)] mt-1">Camila Guerrero · Geovanny Betancourt</p>
-  <p class="text-[10px] text-gray-600 mt-3">Fuentes: DANE · Consejo Privado de Competitividad – Universidad del Rosario · Geometría: MGN 2018</p>
+  <p class="text-[10px] text-gray-600 mt-3">Fuentes: DANE · Consejo Privado de Competitividad · Geometría: MGN 2018</p>
 </footer>
 
 <script src="assets/js/app.js"></script>
